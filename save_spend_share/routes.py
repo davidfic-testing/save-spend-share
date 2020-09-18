@@ -1,6 +1,5 @@
-from save_spend_share import app, api
-from flask_restplus import Resource, Api
-from database import get_kids
+from save_spend_share import app
+from save_spend_share import database
 
 @app.route('/')
 @app.route('/index')
@@ -24,8 +23,3 @@ def add_money(kid,amount,bucket):
     return None
 
 
-@api.route('/kids')
-class Kids(Resource):
-    def get(self):
-        kids = db.get_kids()
-        return {'name': kids[0], 'name': kids[1]}
